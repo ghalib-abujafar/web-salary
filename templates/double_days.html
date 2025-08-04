@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Double Pay Days</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Enter days that have double pay</h2>
+    <form method="post">
+        <label for="double_days">Enter days (e.g., 2 5 7) if you don't have adouble day press Continue:</label>
+        <input type="text" name="double_days">
+        <br><br>
+        <input type="submit" value="Continue">
+    </form>
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" style="
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(255,255,255,0.8);
+        z-index: 9999;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    ">
+        <div style="margin-top: 20%; font-size: 24px; color: #333;">
+            ⏳ Please wait, processing...
+        </div>
+        <div style="margin-top: 20px; border: 6px solid #ccc; border-top: 6px solid #3498db; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; display: inline-block;"></div>
+    </div>
+
+    <script>
+        // Add spinner animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Show overlay on form submit
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("form").forEach(form => {
+                form.addEventListener("submit", () => {
+                    document.getElementById("loadingOverlay").style.display = "block";
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

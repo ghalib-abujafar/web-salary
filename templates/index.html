@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Work Time Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Login Info</h2>
+  <form method="POST">
+    
+    <div class="user-box">
+      <input type="email" name="email" id="email" required>
+      <label for="email">Email</label>
+    </div>
+
+    <div class="user-box">
+      <input type="password" name="password" id="password" required>
+      <label for="password">Password</label>
+    </div>
+
+    <div class="user-box select-wrapper">
+      <select name="month" id="month" required>
+        <option value="" disabled selected hidden></option>
+        <option value="Jan">January</option>
+        <option value="Feb">February</option>
+        <option value="Mar">March</option>
+        <option value="Apr">April</option>
+        <option value="May">May</option>
+        <option value="Jun">June</option>
+        <option value="Jul">July</option>
+        <option value="Aug">August</option>
+        <option value="Sep">September</option>
+        <option value="Oct">October</option>
+        <option value="Nov">November</option>
+        <option value="Dec">December</option>
+      </select>
+      <label for="month">Select Month</label>
+    </div>
+
+    <div class="user-box">
+      <input type="number" step="0.01" name="rate" id="rate" required>
+      <label for="rate">Hourly Rate</label>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      <span></span><span></span><span></span><span></span>
+      Continue
+    </button>
+
+  </form>
+</div>
+
+<!-- Spinner style (if needed) -->
+<script>
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>

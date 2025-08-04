@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Result</title>
+<link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h2>Worked Days Summary</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Worked Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for day in all_days %}
+            <tr>
+                <td>{{ day.date }}</td>
+                <td>{{ day.worked_time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Results</h2>
+    <p>✅ Regular Time: {{ r_hours }}h {{ r_minutes }}m</p>
+    <p>✅ Double Pay Time: {{ d_hours }}h {{ d_minutes }}m</p>
+    <p>💰 Salary without Daman: <strong>{{ salary | round(2) }}</strong></p>
+    <p>💰 Salary with Daman Deduction: <strong>{{ salary_with_deduction | round(2) }}</strong></p>
+    <a href="/">🔙 Back</a>
+</body>
+</html>
