@@ -71,7 +71,7 @@ def scrape_web_data(email, password, month, driver):
     chrome_options.add_argument("--window-size=1920x1080")
 
     driver = webdriver.Chrome(options=chrome_options)
-
+    driver.get("https://decide.orquest.es/#!/person/clock-guards")
     time.sleep(2)
 
     WebDriverWait(driver, 20).until(
@@ -307,3 +307,4 @@ def double_days():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
